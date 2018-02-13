@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+	function search(){
+		var str = document.getElementById("str").value;
+		var arr_txt = str.split(" ");
+		var number = 0;
+		
+		var SH = document.getElementById("txt").value;
+		var SN = document.querySelector("input[name=cheack_list]:checked").value;
+					if(SN == "yes"){
+						for(var i = 0;i < arr_txt.length; i++){
+							if(arr_txt[i] == SH){
+								number++;
+							}
+						}
+					}else if(SN == "no"){
+						for(var i = 0;i < arr_txt.length; i++){
+							SH_2 = SH.toLocaleUpperCase();
+							arr_txt_2 = arr_txt[i].toLocaleUpperCase();
+							if(arr_txt_2 == SH_2){
+								number++;
+							}
+						}
+					}
+					document.getElementById("sum").innerHTML = number;
+				}
+</script>
+</head>
+<body>
+
+<center>
+
+<h1>Ex2 - Search String Non Sensitive Care</h1>
+
+<hr><br>
+
+Text Input:
+	<textarea rows="4" cols="50" id="str" ></textarea><br><br>
+
+Sensitive Case : 
+	<input type="radio" name="cheack_list" value="yes"> Yes
+	<input type="radio" name="cheack_list" value="no"> No<br><br>
+Search : <input type="text" id="txt"><br><br>
+	<button onclick="search()">search</button><br><br><br>
+	Result for Search : <a id="sum"></a>
+</center>
+
+</body>
+</html>
